@@ -1,5 +1,6 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, autoUpdater } = require("electron");
 const path = require("path");
+const nutsUrl = "https://github.com/NarutSH/tray-app/releases";
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
@@ -7,6 +8,9 @@ if (require("electron-squirrel-startup")) {
 }
 
 const createWindow = () => {
+  autoUpdater.setFeedURL({ url: nutsUrl });
+  autoUpdater.checkForUpdatesAndNotify();
+
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,

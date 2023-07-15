@@ -9,7 +9,16 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "lint": "echo \"No linting configured\"",
+    "release": "electron-forge publish"
+  },
+  "build": {
+    "publish": [
+      {
+        "provider": "nuts",
+        "url": "https://github.com/NarutSH/tray-app/releases"
+      }
+    ]
   },
   "keywords": [],
   "author": {
@@ -36,6 +45,7 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
+    "nuts": "^0.34.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
